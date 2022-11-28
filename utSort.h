@@ -24,8 +24,8 @@ TEST(Sort, sortByIncreasingPerimeter)
     Sort::sortByIncreasingPerimeter(&shape_list);
 
     // ans 在本地排序
-    ans.sort([](const Shape *f, const Shape *s)
-             { return f->perimeter() > s->perimeter(); });
+    // ans.sort([](const Shape *f, const Shape *s)
+    //          { return f->perimeter() > s->perimeter(); });
 
     // 3個shapes在兩個list中的排序結果必須相同
     for (int i = 0; i < 3; i++)
