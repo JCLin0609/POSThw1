@@ -9,7 +9,7 @@ void Sort::sortByIncreasingPerimeter(std::list<Shape *> *shapeList)
     // cout << endl;
 
     shapeList->sort([](const Shape *f, const Shape *s)
-                    { return f->perimeter() > s->perimeter(); });
+                    { return f->perimeter() < s->perimeter(); });
     
     // for(Shape *it : *shapeList)
     //     cout << it->perimeter() << " ";
@@ -19,23 +19,23 @@ void Sort::sortByIncreasingPerimeter(std::list<Shape *> *shapeList)
 void Sort::sortByDecreasingPerimeter(std::list<Shape *> *shapeList)
 {
     shapeList->sort([](const Shape *f, const Shape *s)
-                    { return f->perimeter() < s->perimeter(); });
+                    { return f->perimeter() > s->perimeter(); });
 }
 
 void Sort::sortByIncreasingArea(std::list<Shape *> *shapeList)
 {
     shapeList->sort([](const Shape *f, const Shape *s)
-                    { return f->area() > s->area(); });
+                    { return f->area() < s->area(); });
 }
 
 void Sort::sortByDecreasingArea(std::list<Shape *> *shapeList)
 {
     shapeList->sort([](const Shape *f, const Shape *s)
-                    { return f->area() < s->area(); });
+                    { return f->area() > s->area(); });
 }
 
 void Sort::sortByIncreasingCompactness(std::list<Shape *> *shapeList)
 {
     shapeList->sort([](const Shape *f, const Shape *s)
-                    { return (f->area() / f->perimeter()) > (s->area() / s->perimeter()); });
+                    { return (f->area() / f->perimeter()) < (s->area() / s->perimeter()); });
 }

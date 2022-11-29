@@ -25,7 +25,7 @@ TEST(Sort, sortByIncreasingPerimeter)
 
     // ans 在本地排序
     ans.sort([](const Shape *f, const Shape *s)
-             { return f->perimeter() > s->perimeter(); });
+             { return f->perimeter() < s->perimeter(); });
 
     // 3個shapes在兩個list中的排序結果必須相同
     for (int i = 0; i < 3; i++)
@@ -33,8 +33,8 @@ TEST(Sort, sortByIncreasingPerimeter)
         //各別從list取出一個並比較
         if (ans.back()->perimeter() != shape_list.back()->perimeter())
             FAIL() << "Sorting is error.";
-        else
-            cout << ans.back()->perimeter() << " ";
+        // else
+        //     cout << ans.back()->perimeter() << " ";
         ans.pop_back();
         shape_list.pop_back();
     }
@@ -61,7 +61,7 @@ TEST(Sort, sortByDecreasingPerimeter)
     Sort::sortByDecreasingPerimeter(&shape_list);
     //在本地排序
     ans.sort([](const Shape *f, const Shape *s)
-             { return f->perimeter() < s->perimeter(); });
+             { return f->perimeter() > s->perimeter(); });
 
     //比較函式排序和本地排序及果是否相同
     for (int i = 0; i < 3; i++)
@@ -93,7 +93,7 @@ TEST(Sort, sortByIncreasingArea)
 
     Sort::sortByIncreasingArea(&shape_list);
     ans.sort([](const Shape *f, const Shape *s)
-             { return f->area() > s->area(); });
+             { return f->area() < s->area(); });
 
     for (int i = 0; i < 3; i++)
     {
@@ -124,7 +124,7 @@ TEST(Sort, sortByDecreasingArea)
 
     Sort::sortByDecreasingArea(&shape_list);
     ans.sort([](const Shape *f, const Shape *s)
-             { return f->area() < s->area(); });
+             { return f->area() > s->area(); });
 
     for (int i = 0; i < 3; i++)
     {
@@ -155,7 +155,7 @@ TEST(Sort, sortByIncreasingCompactness) // Compactness = area/perimeter
 
     Sort::sortByIncreasingCompactness(&shape_list);
     ans.sort([](const Shape *f, const Shape *s)
-             { return (f->area() / f->perimeter()) > (s->area() / s->perimeter()); });
+             { return (f->area() / f->perimeter()) < (s->area() / s->perimeter()); });
 
     for (int i = 0; i < 3; i++)
     {
